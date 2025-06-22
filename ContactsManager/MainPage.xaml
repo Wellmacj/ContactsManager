@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ContactsManager.MainPage"
+             Title="Contacts">
+
+    <!-- CollectionView to display grouped contacts -->
+    <CollectionView ItemsSource="{Binding ContactsGrouped}" IsGrouped="True" 
+                    SelectionMode="Single" SelectionChanged="OnContactSelected">
+
+        <!-- Group header template displaying the first letter of the group -->
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <Label Text="{Binding Key}" FontSize="20" FontAttributes="Bold"/>
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+
+        <!-- Item template displaying the contact's photo and name -->
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding Avatar}" WidthRequest="40" HeightRequest="40"/>
+                    <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center"/>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+</ContentPage>

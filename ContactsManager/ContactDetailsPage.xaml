@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ContactsManager.ContactDetailsPage"
+             Title="Contact Details">
+
+    <StackLayout Padding="20">
+        <Image Source="{Binding Contact.Avatar}" WidthRequest="100" HeightRequest="100"/>
+        <Label Text="{Binding Contact.Name}" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Label Text="{Binding Contact.Email}" FontSize="16"/>
+        <Label Text="{Binding Contact.PhoneNumber}" FontSize="16"/>
+        <Label Text="{Binding Contact.Description}" FontSize="14"/>
+        <Button Text="Back" Clicked="OnBackButtonClicked"/>
+    </StackLayout>
+</ContentPage>
